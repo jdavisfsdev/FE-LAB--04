@@ -7,5 +7,15 @@
     margin: 10px;
     width: 100px;
     height: 60px;
-    
+}
+
+.container {
+    display: flex;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }

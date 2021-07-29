@@ -6,23 +6,26 @@ export default function UrlAndButtons() {
   return (
     <div>
       <input className={UrlAndButtonsCSS.url} placeholder="URL" type="text" />
-      <section>
-        <label htmlFor="radio">
+      <section className={UrlAndButtonsCSS.container}>
+        <label htmlFor="radio" className={UrlAndButtonsCSS.label}>
         Get
-          <input placeholder="get" className={UrlAndButtonsCSS.radio} type="radio" name="radio" id="get"></input>
+          <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'get'} type="radio" name="radio" id="get"></input>
         </label>
-        <label htmlFor="radio">
+        <label htmlFor="radio" className={UrlAndButtonsCSS.label}>
         Post
-          <input placeholder="get" className={UrlAndButtonsCSS.radio} type="radio" name="radio" id="post"></input>
-        </label><label htmlFor="radio">
+          <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'post'} type="radio" name="radio" id="post"></input>
+        </label>
+        <label htmlFor="radio" className={UrlAndButtonsCSS.label}>
         Put
-          <input placeholder="get" className={UrlAndButtonsCSS.radio} type="radio" name="radio" id="put"></input>
-        </label><label htmlFor="radio">
+          <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'put'} type="radio" name="radio" id="put"></input>
+        </label>
+        <label htmlFor="radio" className={UrlAndButtonsCSS.label}>
         Patch
-          <input placeholder="get" className={UrlAndButtonsCSS.radio} type="radio" name="radio" id="patch"></input>
-        </label><label htmlFor="radio">
+          <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'patch'} type="radio" name="radio" id="patch"></input>
+        </label>
+        <label htmlFor="radio" className={UrlAndButtonsCSS.label}>
         Delete
-          <input placeholder="get" className={UrlAndButtonsCSS.radio} type="radio" name="radio" id="delete"></input>
+          <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'delete'} type="radio" name="radio" id="delete"></input>
         </label>
       </section>
     </div>
