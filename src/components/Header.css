@@ -1,0 +1,14 @@
+header {
+    width: 100vw;
+    height: 150px;
+    background: lightblue;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    padding-left: 10px;
+    font-size: 3.5rem;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
