@@ -3,34 +3,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UrlAndButtonsCSS from './UrlAndButtons.module.css';
 
-export default function UrlAndButtons() {
+export default function UrlAndButtons({ url, onChange, onSubmit }) {
   return (
-    <div>
-      <input className={UrlAndButtonsCSS.url} placeholder="URL" type="text" />
-      <section className={UrlAndButtonsCSS.container}>
+    <form onSubmit={onSubmit}>
+      <input className={UrlAndButtonsCSS.url} name="url" placeholder="URL" type="text" onChange={onChange} value={url}/>
+      <div className={UrlAndButtonsCSS.container}>
         <label htmlFor="radio" className={UrlAndButtonsCSS.label}>
         Get
-          <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'get'} type="radio" name="radio" id="get"></input>
+          <input onChange={onChange} className={UrlAndButtonsCSS.radio} value={'GET'} name="method" type="radio" id="get"></input>
         </label>
         <label htmlFor="radio" className={UrlAndButtonsCSS.label}>
         Post
-          <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'post'} type="radio" name="radio" id="post"></input>
+          <input onChange={onChange} className={UrlAndButtonsCSS.radio} value={'POST'} name="method" type="radio" id="post"></input>
         </label>
         <label htmlFor="radio" className={UrlAndButtonsCSS.label}>
         Put
-          <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'put'} type="radio" name="radio" id="put"></input>
+          <input onChange={onChange} className={UrlAndButtonsCSS.radio} value={'PUT'} name="method" type="radio" id="put"></input>
         </label>
         <label htmlFor="radio" className={UrlAndButtonsCSS.label}>
         Patch
-          <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'patch'} type="radio" name="radio" id="patch"></input>
+          <input onChange={onChange} className={UrlAndButtonsCSS.radio} value={'PATCH'} name="method" type="radio" id="patch"></input>
         </label>
         <label htmlFor="radio" className={UrlAndButtonsCSS.label}>
         Delete
-          <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'delete'} type="radio" name="radio" id="delete"></input>
+          <input onChange={onChange} className={UrlAndButtonsCSS.radio} value={'DELETE'} name="method" type="radio" id="delete"></input>
         </label>
-        <button className={UrlAndButtonsCSS.radio}>Go</button>
-      </section>
-    </div>
+        <button onSubmit={onSubmit} className={UrlAndButtonsCSS.radio}>Go</button>
+      </div>
+    </form>
   );
 }
 
