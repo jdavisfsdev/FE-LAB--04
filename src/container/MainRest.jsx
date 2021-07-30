@@ -4,19 +4,19 @@ import UrlAndButtons from '../components/UrlAndButtons';
 import ResponseBody from '../components/ResponseBody';
 import History from '../components/History';
 import MainRestCSS from './MainRest.module.css';
-import { arrayOf } from 'prop-types';
 import RawBody from '../components/RawBody';
 
-const fetchFunction = async (url, method) => {
-  if(method === 'GET') {
-    const res = await fetch(url);
+const fetchFunction = async (url, method, raw) => {
+  if(method !== 'GET') {
+    const res = await fetch(url, {
+      method: `${method}`,
+      body: JSON.stringify(raw)
+    });
     const json = await res.json();
-    console.log('this is json', json);
-    return ;
+    console.log('this is body', raw);
+    return json;
   }
-  const res = await fetch(url, {
-    method: `${method}`,
-  });
+  const res = await fetch(url);
   const json = res.json();
   return json;
 };
@@ -25,7 +25,7 @@ export default class MainRest extends Component {
     state = {
       url: '',
       method: '',
-      results: '',
+      results: 'Postman: results',
       body: '',
       history: []
     }
@@ -38,6 +38,7 @@ export default class MainRest extends Component {
       e.preventDefault();
       const response = await fetchFunction(this.state.url, this.state.method);
       this.setState({ results: response });
+
     }
 
     render() {
@@ -52,7 +53,7 @@ export default class MainRest extends Component {
             <RawBody onChange={this.handleChange} body={body} />
             <ResponseBody results={results}/>  
           </div>
-          
+
           <div className={MainRestCSS.history}>
             <History history={history} />
           </div>

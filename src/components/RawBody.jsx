@@ -5,7 +5,7 @@ import RawBodyCSS from './RawBody.module.css';
 export default function RawBody({ onChange, body }) {
   return (
     <div>
-      <input onChange={onChange} name="body" placeholder="Raw JSON" type="text" value={body} />
+      <input className={RawBodyCSS.input} onChange={onChange} name="body" placeholder="Raw JSON" type="text" value={body} />
     </div>
   );
 }
