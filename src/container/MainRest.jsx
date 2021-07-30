@@ -5,6 +5,7 @@ import ResponseBody from '../components/ResponseBody';
 import History from '../components/History';
 import MainRestCSS from './MainRest.module.css';
 import { arrayOf } from 'prop-types';
+import RawBody from '../components/RawBody';
 
 const fetchFunction = async (url, method) => {
   if(method === 'GET') {
@@ -25,6 +26,7 @@ export default class MainRest extends Component {
       url: '',
       method: '',
       results: '',
+      body: '',
       history: []
     }
 
@@ -39,15 +41,18 @@ export default class MainRest extends Component {
     }
 
     render() {
-      const { url, results, history } = this.state;
+      const { url, body, results, history } = this.state;
       return (
         <div className={MainRestCSS.main}>
           <div className={MainRestCSS.UrlAndButtons}>
             <UrlAndButtons onChange={this.handleChange} onSubmit={this.handleSubmit} url={url}/>
           </div>
+
           <div className={MainRestCSS.ResponseBody}>
+            <RawBody onChange={this.handleChange} body={body} />
             <ResponseBody results={results}/>  
           </div>
+          
           <div className={MainRestCSS.history}>
             <History history={history} />
           </div>
