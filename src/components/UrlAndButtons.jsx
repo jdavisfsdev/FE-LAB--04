@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
+import PropTypes from 'prop-types';
 import UrlAndButtonsCSS from './UrlAndButtons.module.css';
 
 export default function UrlAndButtons() {
@@ -27,7 +28,12 @@ export default function UrlAndButtons() {
         Delete
           <input placeholder="get" className={UrlAndButtonsCSS.radio} value={'delete'} type="radio" name="radio" id="delete"></input>
         </label>
+        <button className={UrlAndButtonsCSS.radio}>Go</button>
       </section>
     </div>
   );
 }
+
+UrlAndButtons.propTypes = {
+    
+};
