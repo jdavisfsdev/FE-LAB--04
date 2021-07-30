@@ -13,7 +13,7 @@ const fetchFunction = async (url, method, raw) => {
       body: JSON.stringify(raw)
     });
     const json = await res.json();
-    console.log('this is body', raw);
+    console.log(method);
     return json;
   }
   const res = await fetch(url);

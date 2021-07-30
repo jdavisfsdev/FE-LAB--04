@@ -1,7 +1,12 @@
 .body {
     background: rgb(255, 255, 255);
     width: 800px;
-    height: 400px;
+    max-width: 800px;
+    overflow: scroll;
+    
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    padding: 5px;
+    white-space: pre-line;
 }
