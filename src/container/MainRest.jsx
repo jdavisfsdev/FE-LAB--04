@@ -46,7 +46,9 @@ export default class MainRest extends Component {
       return (
         <div className={MainRestCSS.main}>
           <div className={MainRestCSS.UrlAndButtons}>
-            <UrlAndButtons onChange={this.handleChange} onSubmit={this.handleSubmit} url={url}/>
+            <UrlAndButtons onChange={this.handleChange} onSubmit={this.handleSubmit} url={url}
+              inputProps={{ 'data-testid': 'url' }}
+            />
           </div>
 
           <div className={MainRestCSS.ResponseBody}>
