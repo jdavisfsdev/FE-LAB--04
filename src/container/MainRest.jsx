@@ -10,8 +10,9 @@ const fetchFunction = async (url, fetchMethod, raw) => {
   // eslint-disable-next-line quotes
   if(fetchMethod !== "GET") {
     const res = await fetch(url, {
-      method: fetchMethod,
-      body: raw
+      'method': fetchMethod,
+      'Content-Type': 'application-json',
+      'body': raw
     });
     const json = await res.json();
     console.log(json);
