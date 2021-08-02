@@ -11,7 +11,9 @@ const fetchFunction = async (url, fetchMethod, raw) => {
   if(fetchMethod !== "GET") {
     const res = await fetch(url, {
       'method': fetchMethod,
-      'Content-Type': 'application-json',
+      'headers': {
+        'Content-Type': 'application-json'
+      },
       'body': raw
     });
     const json = await res.json();
