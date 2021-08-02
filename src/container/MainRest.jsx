@@ -6,18 +6,19 @@ import History from '../components/History';
 import MainRestCSS from './MainRest.module.css';
 import RawBody from '../components/RawBody';
 
-const fetchFunction = async (url, method, raw) => {
-  if(method !== 'GET') {
+const fetchFunction = async (url, fetchMethod, raw) => {
+  // eslint-disable-next-line quotes
+  if(fetchMethod !== "GET") {
     const res = await fetch(url, {
-      method: `${method}`,
-      body: JSON.stringify(raw)
+      method: fetchMethod,
+      body: raw
     });
     const json = await res.json();
-    console.log(method);
+    console.log(json);
     return json;
   }
   const res = await fetch(url);
-  const json = res.json();
+  const json = await res.json();
   return json;
 };
 
@@ -36,9 +37,8 @@ export default class MainRest extends Component {
 
     handleSubmit = async (e) => {
       e.preventDefault();
-      const response = await fetchFunction(this.state.url, this.state.method);
-      this.setState({ results: response });
-
+      const response = await fetchFunction(this.state.url, this.state.method, this.state.body);
+      await this.setState({ results: response });
     }
 
     render() {

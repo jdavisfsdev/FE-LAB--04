@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RawBody componenet snapshot Renders the raw body input box 1`] = `
+<DocumentFragment>
+  <div>
+    <input
+      class="input"
+      name="body"
+      placeholder="Raw JSON"
+      type="text"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;
